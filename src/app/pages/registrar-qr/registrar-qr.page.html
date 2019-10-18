@@ -1,8 +1,25 @@
 <app-header titulo="registrar por qr"></app-header>
-<ion-content>
-  <ion-button  (click)="Encode()">Codificar</ion-button>
 
+<ion-content ion-padding>
 
-  <ion-button size="large" shape="round" (click)="Scan()">Escanear</ion-button>
+  <div style="padding: 10px">
 
+      <!--CODIFICAR-->
+      <ion-input type="text" placeholder="Digite su texto" [(ngModel)]="datocodificado"></ion-input>
+  
+      <ion-button expand="block" (click)="CodificarTexto()">Generar Código</ion-button>
+
+      <br>
+
+      <!--SCANNEAR-->
+      <ion-button expand="block" color="success" (click)="LeerCode()">Scannear Código</ion-button>
+    
+      <div *ngIf="datoscaneado">
+          <p>
+              Contenido obtenido: <b>{{ datoscaneado["text"] }}</b>
+          </p>
+      </div>
+
+  </div>
+    
 </ion-content>

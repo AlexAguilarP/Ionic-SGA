@@ -8,23 +8,29 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 })
 export class RegistrarQRPage implements OnInit {
 
+  datocodificado: any;
+  datoscaneado: {};
+
   constructor(public barcode:BarcodeScanner) { }
   Encode()
   {
-    var TextToEncode = window.prompt("Enter text to encode .");
-    this.barcode.encode(this.barcode.Encode.TEXT_TYPE,TextToEncode).then((data)=>{
-      alert(JSON.stringify(data));
-    },(err)=>{
-      alert(JSON.stringify(err));
-    })
+    this.barcodeScanner.encode(this.barcodeScanner.Encode.TEXT_TYPE, this.datocodificado).then(
+      encodedData => {
+        this.datocodificado = encodedData;
+      },
+      err => {
+        console.log("Un error ha ocurrido: " + err);
+      }
+    );
   }
   Scan()
   {
-    this.barcode.scan().then((barcodeData)=>{
-      alert(barcodeData.text);
-    },(err)=>{
-      alert(JSON.stringify(err));
+    this.barcodeScanner.scan().then(barcodeData => {
+      this.datoscaneado = barcodeData;
     })
+    .catch(err => {
+      console.log("Error", err);
+    });
   }
   ngOnInit() {
   }
