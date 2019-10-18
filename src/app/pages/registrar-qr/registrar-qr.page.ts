@@ -14,7 +14,7 @@ export class RegistrarQRPage implements OnInit {
   constructor(public barcode:BarcodeScanner) { }
   Encode()
   {
-    this.barcodeScanner.encode(this.barcodeScanner.Encode.TEXT_TYPE, this.datocodificado).then(
+    this.barcode.encode(this.barcode.Encode.TEXT_TYPE, this.datocodificado).then(
       encodedData => {
         this.datocodificado = encodedData;
       },
@@ -25,7 +25,7 @@ export class RegistrarQRPage implements OnInit {
   }
   Scan()
   {
-    this.barcodeScanner.scan().then(barcodeData => {
+    this.barcode.scan().then(barcodeData => {
       this.datoscaneado = barcodeData;
     })
     .catch(err => {
