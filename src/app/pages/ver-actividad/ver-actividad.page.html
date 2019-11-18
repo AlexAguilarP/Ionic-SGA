@@ -1,0 +1,38 @@
+<app-header titulo="Actividad"></app-header>
+<ion-content>
+  <ion-item *ngFor="let item of listado">
+    <ion-card>
+      <img src="http://localhost/proyectoquintosemestre/public/uploads/{{item.imagen_actividad}}" />
+      <ion-card-header>
+        <ion-card-subtitle color="tertiary">Nombre o Titulo de la Actividad:</ion-card-subtitle>
+        <ion-card-title color="primary">{{ item.nombre_actividad | titlecase }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-card-subtitle color="secondary">Descripcion de la Actividad:</ion-card-subtitle>
+        <ion-label>{{item.descripcion_actividad}}</ion-label>
+        <br>
+        <ion-item-divider>
+          <ion-label>Fecha(s) de Realización</ion-label>
+        </ion-item-divider>
+        <ion-item-group *ngFor="let item2 of listado2">
+          <ion-text>Fecha:</ion-text>
+          <ion-datetime style="text-align: center;" readonly display-format="DDD DD MMM YYYY" 
+          [dayShortNames]="customDayShortNames"
+            value="{{item2.fecha_actividad}}"
+            month-short-names="Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agogosto, Septiembre, Octubre, Noviembre, Diciembre"></ion-datetime>
+          <ion-card-subtitle>Horario:</ion-card-subtitle>
+          <ion-row>
+            <ion-col>
+              <ion-label>Inicio</ion-label>
+              <ion-datetime readonly display-format="h:mm a" min="1997" max="2010" value="{{item2.inicio}}"></ion-datetime>
+            </ion-col>
+            <ion-col>
+              <ion-label>Fin</ion-label>
+              <ion-datetime readonly display-format="h:mm a" min="1997" max="2010" value="{{item2.fin}}"></ion-datetime>
+            </ion-col>
+          </ion-row>
+        </ion-item-group>
+      </ion-card-content>
+    </ion-card>
+  </ion-item>
+</ion-content>

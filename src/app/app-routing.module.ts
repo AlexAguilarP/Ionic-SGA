@@ -6,6 +6,12 @@ const routes: Routes = [
   { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   { path: 'registrar-qr', loadChildren: './pages/registrar-qr/registrar-qr.module#RegistrarQRPageModule' },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
+  { path: '', loadChildren: './pages/tabs/tabs.module#TabsPageModule' },
+  { path: 'registrar-externo', loadChildren: './pages/registrar-externo/registrar-externo.module#RegistrarExternoPageModule' },
+  { path: 'inicio', loadChildren: './pages/inicio/inicio.module#InicioPageModule' },
+  { path: 'ver-actividad/:id', loadChildren: './pages/ver-actividad/ver-actividad.module#VerActividadPageModule' },
+
+
 
 
 ];

@@ -1,0 +1,42 @@
+<app-header titulo="registrar externo"></app-header>
+<ion-content>
+    <ion-row>
+        <ion-col>
+            <ion-input style="width: 100%; text-align: center;" [(ngModel)]="ci" type="number" placeholder="N° Carnet de Identidad"></ion-input>
+
+        </ion-col>
+        <ion-col size="4">
+            <ion-button style="float:right;" (click)="cargarInformacion()">Buscar</ion-button>
+        </ion-col>
+    </ion-row>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-subtitle>Registrar</ion-card-subtitle>
+            <ion-card-title>Ingresa estos datos</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-label for="nombre">Nombre(s)</ion-label>
+            <ion-input type="text" autocapitalize=sentences id="nombre" style="text-align: center;"
+                placeholder="Nombre...." [(ngModel)]="nombre"></ion-input>
+            <ion-label for="ape_1">Apellido Paterno</ion-label>
+            <ion-input type="text" autocapitalize=sentences id="ape_1" style="text-align: center;"
+                placeholder="Apellido Paterno...." [(ngModel)]="ape1"></ion-input>
+            <ion-label for="ape_2">Apellido Materno</ion-label>
+            <ion-input type="text" autocapitalize=sentences id="ape_2" style="text-align: center;"
+                placeholder="Apellido Materno...." [(ngModel)]="ape2"></ion-input>
+            <ion-label for="email">Correo electronico</ion-label>
+            <ion-input type="email" id="email" style="text-align: center;" placeholder="Correo Electronico...."
+                [(ngModel)]="correo"></ion-input>
+            <ion-label for="telf">N° Celular</ion-label>
+            <ion-input type="number" id="telf" style="text-align: center;" placeholder="Numero de celular...."
+                [(ngModel)]="telf"></ion-input>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <ion-button color="success" expand="block" fill="outline" shape="round" (click)="registrar()">Registrar
+            <ion-icon slot="end" name="add"></ion-icon>
+        </ion-button>
+    </ion-toolbar>
+</ion-footer>

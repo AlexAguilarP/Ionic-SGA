@@ -1,0 +1,26 @@
+<app-header titulo="inicio"></app-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content 
+      pullingIcon="refresh" 
+      pullingText="Refrescar" 
+      refreshingSpinner="bubbles"
+      refreshingText="Refrescando...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <ion-item *ngFor="let item of listado" routerLink="/ver-actividad/{{item.id_actividad}}" detail>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{ item.nombre_actividad | titlecase }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-img src="http://localhost/proyectoquintosemestre/public/uploads/{{item.imagen_actividad}}"></ion-img>
+          <ion-card-subtitle>Descripcion de la Actividad:</ion-card-subtitle><br>
+          <ion-text>{{item.descripcion_actividad}}</ion-text>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

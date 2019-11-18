@@ -1,25 +1,59 @@
-<app-header titulo="registrar por qr"></app-header>
+<app-header titulo="registrar por QR"></app-header>
 
-<ion-content ion-padding>
-
-  <div style="padding: 10px">
-
-      <!--CODIFICAR-->
-      <ion-input type="text" placeholder="Digite su texto" [(ngModel)]="datocodificado"></ion-input>
-  
-      <ion-button expand="block" (click)="CodificarTexto()">Generar Código</ion-button>
-
-      <br>
-
-      <!--SCANNEAR-->
-      <ion-button expand="block" color="success" (click)="LeerCode()">Scannear Código</ion-button>
+<ion-content>
+    <ion-row>
+        <ion-col>
+            <ion-text color="primary" style="text-align: start;">
+                <h2>Codigo</h2>
+            </ion-text>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+            <ion-input type="text" name="codigo"  [(ngModel)]="codigo" (ionChange)="cargarInformacion()" placeholder="codigo"></ion-input>
+        </ion-col>
+    </ion-row>
     
-      <div *ngIf="datoscaneado">
-          <p>
-              Contenido obtenido: <b>{{ datoscaneado["text"] }}</b>
-          </p>
-      </div>
+    <ion-row>
+        <ion-col>
+            <ion-text color="primary" style="text-align: start;">
+                <h2>Nombre(s)</h2>
+            </ion-text>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col ion-item *ngFor="let item of listado">
+            <h3>{{ item.nombre_de_usuario | titlecase }}</h3>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+            <ion-text color="primary" style="text-align: start;">
+                <h2>Apellido Paterno</h2>
+            </ion-text>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col ion-item *ngFor="let item of listado">
+            <h3>{{ item.apellido_paterno | titlecase }}</h3>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+            <ion-text color="primary" style="text-align: start;">
+                <h2>Apellido Materno</h2>
+            </ion-text>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col ion-item *ngFor="let item of listado">
+            <h3>{{ item.apellido_materno | titlecase }}</h3>
+        </ion-col>
+    </ion-row>
 
-  </div>
-    
+    <ion-button expand="block" color="success" (click)="LeerCode()" style="margin-bottom: 0%;">Scannear Código
+    </ion-button>
+    <ion-button expand="block" color="primary" (click)="registrarAsistencia()" style="padding-bottom: 0%;">Registrar
+    </ion-button>
+
 </ion-content>
