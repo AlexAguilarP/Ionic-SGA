@@ -42,7 +42,7 @@
 			}
 		  	date_default_timezone_set("America/La_Paz");
 		  	$id_tipo_asistencia ="3";
-		  	$id_lista="2";
+		  	$id_lista="1";
 			$inicio=date('Y/m/d h:i:s');
 			$fin=date('Y/m/d h:i:s');
 			if (strcmp($id_rol,$i2)===0 || strcmp($id_rol,$i3)===0 || strcmp($id_rol,$i4)===0 ) {
@@ -144,8 +144,12 @@
 				echo putSQL($sql);
 			}
 			break;
+		case '10':
+			$id_lista = $_GET["id"];
+			$sql = "SELECT * FROM listas_generales WHERE id_lista LIKE a ' ORDER BY (fecha_actividad) ASC  ";
+			echo getSQL($sql);
+			break;
 		default:
 			# code...
 			break;
 	}
-?>

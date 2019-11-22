@@ -12,6 +12,7 @@ const routes: Routes = [
     children: [
       { path: 'tab1', loadChildren: '../registrar-qr/registrar-qr.module#RegistrarQRPageModule' },
       { path: 'tab2', loadChildren: '../registrar-externo/registrar-externo.module#RegistrarExternoPageModule' },
+      { path: 'tab3', loadChildren: '../lista/lista.module#ListaPageModule' },
     ]
   },
   {

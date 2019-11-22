@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: '', loadChildren: './pages/tabs/tabs.module#TabsPageModule' },
   { path: 'registrar-externo', loadChildren: './pages/registrar-externo/registrar-externo.module#RegistrarExternoPageModule' },
   { path: 'inicio', loadChildren: './pages/inicio/inicio.module#InicioPageModule' },
-  { path: 'ver-actividad/:id', loadChildren: './pages/ver-actividad/ver-actividad.module#VerActividadPageModule' },
+  { path: 'ver-actividad/:id', loadChildren: './pages/ver-actividad/ver-actividad.module#VerActividadPageModule' },  { path: 'lista', loadChildren: './pages/lista/lista.module#ListaPageModule' },
+
 
 
 
