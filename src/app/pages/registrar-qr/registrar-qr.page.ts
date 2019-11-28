@@ -47,7 +47,7 @@ export class RegistrarQRPage implements OnInit {
   }
   registrarAsistencia() {
     // tslint:disable-next-line: max-line-length
-    this.http.get('http://' + this.global.VAR_GLOBAL + '/ionic/Ionic-SGA/sga/api/opciones.php?opcion=4&codigo_usuario=' + this.codigo + '').subscribe(snap => {
+    this.http.get('http://' + this.global.VAR_GLOBAL + '/ionic/Ionic-SGA/sga/api/opciones.php?opcion=4&codigo_usuario=' + this.codigo + '&id_lista=' + this.global.ID_LISTA + '').subscribe(snap => {
       console.log(snap);
       this.presentToast('Registrado con éxito');
     }, error => {

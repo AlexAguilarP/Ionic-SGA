@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage implements OnInit {
+  textoBuscar: any;
   listado: {};
   constructor(public global: GlobalService, public http: HttpClient) {
     this.cargarInformacion();
@@ -32,6 +33,10 @@ export class InicioPage implements OnInit {
         this.listado = snap;
       });
     }, 2000);
+  }
+  buscar(event) {
+    this.textoBuscar = event.detail.value;
+    console.log(event);
   }
   ngOnInit() {
   }

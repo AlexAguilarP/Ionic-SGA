@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ComponentesModule } from './componentes/componentes.module';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { HTTP } from '@ionic-native/http/ngx';
+import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { HTTP } from '@ionic-native/http/ngx';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    PipesModule,
     ComponentesModule,
     HttpClientModule
 ],

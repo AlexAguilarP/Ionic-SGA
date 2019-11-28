@@ -28,6 +28,7 @@
 		case '4':
 		//registrar un usuario
 			$codigo_usuario = $_GET['codigo_usuario'];
+			$id_lista=$_GET['id_lista'];
 			$i1="1";
 			$i2="2";
 			$i3="3";
@@ -42,7 +43,6 @@
 			}
 		  	date_default_timezone_set("America/La_Paz");
 		  	$id_tipo_asistencia ="3";
-		  	$id_lista="1";
 			$inicio=date('Y/m/d h:i:s');
 			$fin=date('Y/m/d h:i:s');
 			if (strcmp($id_rol,$i2)===0 || strcmp($id_rol,$i3)===0 || strcmp($id_rol,$i4)===0 ) {
@@ -114,6 +114,7 @@
 			$apeP=utf8_decode($_GET['apeP']);
 			$apeM=utf8_decode($_GET['apeM']);
 			$correo=utf8_decode($_GET['correo']);
+		  	date_default_timezone_set("America/La_Paz");
 			$telf=$_GET['telefono'];
 			$inicio=date('Y/m/d h:i:s');
 			$fin=date('Y/m/d h:i:s');
@@ -147,6 +148,34 @@
 		case '10':
 			$id_lista = $_GET["id"];
 			$sql = "SELECT * FROM listas_generales WHERE id_lista LIKE a ' ORDER BY (fecha_actividad) ASC  ";
+			echo getSQL($sql);
+			break;
+		case '11':
+			$usuario=$_GET['usuario'];
+			$pass=$_GET['pass'];
+			$ssql="SELECT * FROM lista_de_usuarios WHERE codigo_usuario='$usuario'";
+			$ql=mysqli_query($con,$ssql);
+			while($row=mysqli_fetch_array($ql)){
+				$id=$row['id'];
+				$passW=$row['password_usuario'];
+			}
+			if (empty($id) ) {
+				echo("no registrado");
+			}else{
+				//if (password_verify($pass, $passW)) {//para bycryt
+				if($pass==$passW){// sin bycryt
+					echo getSQL($ssql);
+				} else {
+					echo getSQL('');
+				}
+			}
+			break;
+		case '12':
+			date_default_timezone_set("America/La_Paz");
+			$fecha=date('Y-m-d');
+			$hora=date('h:i:s');
+			$usuario=$_GET['usuario'];
+			$sql = "SELECT lista_de_responsables.`*` FROM lista_de_responsables WHERE lista_de_responsables.codigo_usuario='$usuario' AND limite_fecha>'$fecha'";
 			echo getSQL($sql);
 			break;
 		default:

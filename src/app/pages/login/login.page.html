@@ -1,7 +1,24 @@
-<app-header titulo="iniciar sesion"></app-header>
-
 <ion-content>
-  <ion-button routerLink="../tabs/tab1">
-    Iniciar sesión
-  </ion-button>
+  <form #form="ngForm" (ngSubmit)="ingresar()">
+    <ion-grid>
+      <ion-row color="primary" class="ion-justify-content-center">
+        <ion-col class="ion-align-self-center">
+          <div class="ion-text-center">
+            <h1 color="dark" style="padding-top: 25%;">Login</h1>
+          </div>
+          <div class="ion-padding">
+            <ion-item>
+              <ion-input type="text" autocapitalize="on" name="corr" placeholder="Codigo Usuario" [(ngModel)]="usuario" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="password" name="pas" placeholder="Password" [(ngModel)]="pass" required></ion-input>
+            </ion-item>
+          </div>
+          <div class="ion-padding">
+            <ion-button type="submit" [disabled]="form.invalid" size="large" expand="block">Ingresar</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>

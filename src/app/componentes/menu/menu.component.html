@@ -1,4 +1,4 @@
-<ion-menu side="start" menuId="Menu"  class="my-custom-menu" contentId="principal">
+<ion-menu side="start" menuId="Menu" class="my-custom-menu" contentId="principal">
   <ion-header>
     <ion-toolbar color="primary">
       <ion-title>Menú Principal</ion-title>
@@ -6,40 +6,41 @@
   </ion-header>
   <ion-content class="dark-bg">
     <ion-list>
-      <ion-menu-toggle>
-        <ion-item routerLink="/login" no-borner>
-          <ion-icon slot="start" name="person-add"></ion-icon>
-          <ion-label>
-            Registrar Asistencia
-          </ion-label>
-        </ion-item>
+      <ion-menu-toggle menu="Menu">
         <ion-item routerLink="/inicio" no-borner>
           <ion-icon slot="start" name="home"></ion-icon>
-          <ion-label>
-            inicio
-          </ion-label>
+          <h2 ion-text color="light">Inicio</h2>
         </ion-item>
-        <ion-item>
+        <ion-item routerLink="/act-designada">
           <ion-icon slot="start" name="list-box"></ion-icon>
-          <h2 ion-text color="light">Lista Asistencia</h2>
+          <h2 ion-text color="light">Registrar</h2>
         </ion-item>
       </ion-menu-toggle>
     </ion-list>
   </ion-content>
 </ion-menu>
-<ion-menu side="end" menuId="menuDer" contentId="principal" type="push">
+<ion-menu side="end" menuId="menuDer" contentId="principal" type="overlay">
   <ion-header>
-    <ion-toolbar color="danger">
-      <ion-title>End Menu</ion-title>
+    <ion-toolbar color="secundary">
+      <ion-title>Usuario</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
     <ion-list>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
+      <ion-menu-toggle menu="menuDer">
+        <ion-item clearHistory="true" routerLink="/login" no-borner>
+          <ion-icon slot="start" name="contact"></ion-icon>
+          <h2 ion-text color="light">Mi Perfil</h2>
+        </ion-item>
+        <ion-item (click)="CodificarTexto()" no-borner>
+          <ion-icon slot="start" name="barcode"></ion-icon>
+          <h2 ion-text color="light">Mostrar mi QR</h2>
+        </ion-item>
+        <ion-item clearHistory="true" routerLink="/login" no-borner>
+          <ion-icon slot="start" name="log-out"></ion-icon>
+          <h2 ion-text color="light">Logout</h2>
+        </ion-item>
+      </ion-menu-toggle>
     </ion-list>
   </ion-content>
 </ion-menu>

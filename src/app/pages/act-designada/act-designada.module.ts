@@ -5,26 +5,26 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { InicioPage } from './inicio.page';
+import { ActDesignadaPage } from './act-designada.page';
 import { ComponentesModule } from 'src/app/componentes/componentes.module';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: InicioPage
+    component: ActDesignadaPage
   }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    PipesModule,
     FormsModule,
-    ComponentesModule,
     IonicModule,
-    RouterModule.forChild(routes),
+    PipesModule,
+    ComponentesModule,
+    RouterModule.forChild(routes)
   ],
-  declarations: [InicioPage]
+  declarations: [ActDesignadaPage]
 })
-export class InicioPageModule {}
+export class ActDesignadaPageModule {}
