@@ -10,7 +10,7 @@ import { GlobalService } from 'src/app/api/global.service';
 })
 export class ListaPage implements OnInit {
   listado: {};
-  constructor(public http: HttpClient, public toastController: ToastController, public global: GlobalService) { 
+  constructor(public http: HttpClient, public toastController: ToastController, public global: GlobalService) {
     this.cargarInformacion();
 
   }
